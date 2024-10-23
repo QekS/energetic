@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>АБ «УКРГАЗБАНК»</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"><link href="img/favicon.ico" rel="shortcut icon">
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+    <meta property="fb:admins" content="">
+    <link rel="stylesheet" media="all" href="css/app.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/effective-interest-rate@0.1.0/lib/effective-interest.min.js"></script>
+<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCCZYRR5J5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FCCZYRR5J5');
+</script>
+  </head>
+  <body>
+    <div class="inner">
+      <div class="background">
+        <picture>
+          <source srcset="img/background.jpg" media="(min-width: 1024px)" type="image/jpeg">
+          <source srcset="img/background-mobile.jpg" media="(max-width: 1023px)" type="image/jpeg"><img src="img/background.jpg" alt="Background">
+        </picture>
+      </div><a class="logo" href="https://www.ukrgasbank.com" target="blank"><img src="img/ugb.png" alt="Укргазбанк"></a>
+      <div class="hero">
+        <div class="hero__inner">
+          <h1 class="hero__title">Енергонезалежність фізичних осіб - власників домогосподарств</h1>
+          <div class="hero__text">Кредит з компенсацією процентної <br>ставки та державною підтримкою</div>
+          <button class="btn" data-go-to-form>Замовити консультацію</button>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section__title">Умови кредиту:</h2>
+        <div class="conditions">
+          <ul class="conditions__list">
+            <li><img src="img/icon-1-1.png" alt="Icon 1-1">
+              <p>Сума кредиту до 480 000 грн</p>
+            </li>
+            <li><img src="img/icon-1-2.png" alt="Icon 1-2">
+              <p>Строк кредиту до 10 років</p>
+            </li>
+            <li><img src="img/icon-1-3.png" alt="Icon 1-3">
+              <p>Без застави</p>
+            </li>
+            <li><img src="img/icon-1-4.png" alt="Icon 1-4">
+              <p>Фінансування монтажних робіт</p>
+            </li>
+          </ul><a class="btn" href="https://www.ukrgasbank.com/upload/file/ih_energonez_dom.pdf" target="_blank">Детальні умови</a>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section__title">Що можна купити:</h2>
+		<h2 class="section__title2">Гібридну систему електропостачання</h2>
+        <div class="shopping">
+          <ul class="shopping__list">
+            <li><img src="img/icon-2-1.png" alt="Icon 2-1">
+              <p>Сонячні панелі з інверторами та акумуляторами до 10 кВт</p>
+            </li>
+            <!--<li><img src="img/icon-2-2.png" alt="Icon 2-2">
+              <p>Сонячні панелі, генератори, вітрогенератори <br>та вітряки</p>
+            </li>-->
+            <li><img src="img/icon-2-3.png" alt="Icon 2-3">
+              <p>Вітряки з інверторами та <br>акумуляторами до 10 кВт</p>
+            </li>
+          </ul>
+          <button class="btn" data-go-to-form>Замовити консультацію</button>
+        </div>
+      </div>
+<div class="section">
+        <h2 class="section__title">Кредитний калькулятор</h2>
+        <div class="calc">
+          <div class="calc__title">Розрахувати щомісячний платіж</div>
+
+          <div class="calc__form">
+            <label><span id="sum_max">Сума кредиту, грн</span>
+              
+              <input type="number" id="sum_kred" oninput="handleSumKredInput()" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57" >
+            </label>
+            
+
+            <label><span id="time_max">Строк кредиту, міс.</span>
+              
+              <input type="number" id="time_kred" oninput="handleTimeKredInput()" onkeypress="return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57" >
+            </label>
+            <label><span>Щомісячний платіж, грн</span>
+              <br>
+              <input type="number" id="displaySumMonth" readonly>
+            </label>
+
+
+
+            <label><span>Орієнтовна загальна вартість кредиту, грн</span>
+              <input type="number" id="AllSum" readonly>
+            </label>
+
+
+            <label><span>Щомісячний платіж, з компенсацією, грн</span>
+              <br>
+              <input type="number" id="Compen" readonly>
+            </label>
+            <label><span>Орієнтовні загальні витрати за кредитом, грн</span>
+              <input type="number" id="AllSumMinus" readonly>
+            </label>
+
+
+
+
+            <label><span>Реальна річна відсоткова ставка,%</span>
+              <input type="number" id="XIRR" readonly>
+            </label>
+            
+
+          </div>
+          <br>
+          <div class="calc__title" id="insurance">Комісія за надання кредиту 1.5% </div>
+            <img class="calc__ribbon" src="img/ribbon.png" alt="Ribbon">
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section__title">Як отримати кредит:</h2>
+        <div class="getting">
+          <ol class="getting__list">
+            <li><img src="img/icon-3-1.png" alt="Icon 3-1">
+              <p>Оберіть <br>обладнання</p>
+            </li>
+            <li><img src="img/icon-3-2.png" alt="Icon 3-2">
+              <p>Оформіть <br>кредит у відділенні</p>
+            </li>
+            <li><img src="img/icon-3-3.png" alt="Icon 3-3">
+              <p>Вмикайте своє <br>джерело енергії</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="section section--form">
+        <div class="form-container">
+          <form class="form" id="form" action>
+            <div class="field">
+              <div class="field__label">*ПІБ</div>
+              <input class="field__input" id="webform-fio" type="text" name="webform-fio" placeholder="Введіть ПІБ" label="ПІБ">
+              <div class="field__error"></div>
+            </div>
+            <div class="field">
+              <div class="field__label">*Телефон</div>
+              <input class="field__input" id="webform-phone" type="tel" value="+380" name="webform-phone" placeholder="Введіть номер телефону" label="Телефон" maxlength="13">
+              <div class="field__error"></div>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <input id="webform-personal-data" type="checkbox" value="checkbox" name="webform-personal-data" checked><span>Я згоден на використання персональних даних</span>
+              </label>
+              <div class="field__error"></div>
+            </div>
+            <button class="field__btn btn" type="submit">Замовити консультацію</button>
+          </form>
+          <div class="loader"></div>
+          <div class="result">Дякуємо! Скоро з вами зв’яжеться наш менеджер</div>
+        </div>
+      </div>
+     <div class="info" style="margin-bottom: 1.1666666667vw;">
+        <h3 class="info__title">ВАЖЛИВО</h3>
+        <div class="info__content" style="border: 0.15625vw solid white;">
+          <p>Компенсація відсотків надається одній фізичній особі за  одним кредитним договором на придбання та встановлення гібридної системи електропостачання у власному приватному домогосподарстві,  з об'єктом нерухомості (крім земельних ділянок), загальна площа якого не може перевищувати 250 кв.м. та одним  особовим рахунком побутового споживача електроенергії за таким об'єктом нерухомості.</p>
+          <p>Приватне домогосподарство, це земельна ділянка разом з розташованими на ній за однією адресою житловим будинком або котеджем (та у разі наявності господарськими (присадибними) будівлями наземними та/або підземними комунікаціями), що належить індивідуальному побутовому споживачу на праві власності. До складу членів  приватного домогосподарства належать  його власник та співвласники.</p>
+          
+        </div><img class="info__ribbon" src="img/ribbon.png" alt="Ribbon">
+      </div>	  
+      <div class="info" style="margin-bottom: 1.7666666667vw;">
+        <h3 class="info__title">ПОПЕРЕДЖЕННЯ</h3>
+        <div class="info__content" style="border: 0.15625vw solid white;">
+          <p>1. Попередження про можливі наслідки для Клієнта в разі користування банківською послугою або невиконання ним обов'язків згідно з договором про надання цієї банківської послуги:</p>
+          <p>Клієнт сплачує комісії, проценти за користування споживчим кредитом, оплачує супровідні послуги (якщо такі передбачені договором) та повертає суму кредиту відповідно до умов договору та вимог законодавства України.</p>
+          <p>У разі порушення Клієнтом виконання зобов’язань (в повному обсязі або частково) при користуванні споживчим кредитом передбачено:</p>
+          <p>- сплату процентів за прострочення сплати по споживчому кредиту відповідно до ст.625 Цивільного кодексу України в розмірі та на умовах відповідно до умов договору;</p>
+          <p>- право Банку у визначених договором випадках вимагати дострокового погашення платежів за споживчим кредитом та відшкодування збитків, завданих банку порушенням зобов’язання, а також відступити права вимоги за Договором новому кредитору або залучити колекторську компанію для врегулювання простроченої заборгованості.</p>
+          
+          <p>2. Банк не має права вносити зміни до укладених зі Клієнтом договорів про споживчий кредит в односторонньому порядку, якщо інше не встановлено договором або законом.</p>
+          <p>3. Банку забороняється вимагати від Клієнта придбання будь-яких товарів чи послуг від Банку або спорідненої чи пов'язаної з ним особи як обов'язкову умову надання цих послуг (крім надання пакета банківських послуг).</p>
+          <p>4. Клієнт має право відмовитися від отримання рекламних матеріалів каналами дистанційного електронного обслуговування.</p>
+          <p>5. Клієнт має право достроково повернути кредит. Штрафні санкції за дострокове повернення кредитних коштів відсутні.</p>
+          <p>6. Клієнт має право після припинення дії договору про надання банківської послуги, включно у зв'язку із завершенням строку дії, розірванням або виконанням такого договору, звернутися до банку із запитом на отримання інформації (довідки), що стосується виконання сторонами своїх зобов'язань, установлених договором. </p>
+          <p>Така інформаційна довідка може містити у собі інформацію про відсутність у клієнта заборгованості та виконання клієнтом зобов’язань за договором у повному обсязі.</p>
+          <p>Інформація (довідка) надається банком у формі паперового або електронного документа (за вибором клієнта) протягом п'яти робочих днів із дня отримання банком такого запиту від клієнта.</p>
+        </div>
+      </div>
+      <ul class="links">
+	    <li><a href="https://www.ukrgasbank.com/private/credits/inform" target="_blank">Інформація для діючих клієнтів</a></li>
+        <li><a href="https://www.ukrgasbank.com/upload/file/ih_energonez_dom.pdf" target="_blank">Істотні характеристики послуги</a></li>
+		<li><a href="https://www.ukrgasbank.com/upload/file/clc_energonezale.xlsx">Калькулятор витрат</a></li>
+		<li><a href="https://www.ukrgasbank.com/upload/file/cd_energonez_dom.pdf" target="_blank">Кредитний договір</a></li>
+      </ul>
+    </div>
+    <footer class="footer"><div class="footer__phone"><a class="footer__phone" href="tel:0986202020">098 620 20 20 (Київстар)</a></br><a class="footer__phone" href="tel:0996202020">099 620 20 20 (Vodafone)</a></br><a class="footer__phone" href="tel:073 620 20 20">073 620 20 20 (Lifecell)</a></div>
+      <div class="footer__content">
+        <p>УКРГАЗБАНК – системно важливий банк України, 94.9409% якого належить державі.</p>
+        <p>Стратегічним напрямом діяльності УКРГАЗБАНКУ є підтримка представників малого та середнього бізнесу, яким банк пропонує високий рівень обслуговування та повний спектр банківських послуг.</p>
+      </div><a class="footer__logo" href="https://www.ukrgasbank.com" target="blank"><img src="img/ukrgasbank.png" alt="Укргазбанк"></a>
+    </footer>
+    <script>
+
+function handleTimeKredInput() {
+        const maxTime = 120;
+        let inputField = document.getElementById("time_kred");
+        let timeMaxElement = document.getElementById("time_max");
+        let value = parseInt(inputField.value);
+
+        if (isNaN(value)) {
+            value = 0;
+        }
+
+        if (value > maxTime) {
+            value = maxTime;
+            timeMaxElement.innerHTML = 'Строк кредиту, міс. <span style="color: red;font-size:16px;">(Максимально: 120 міс.)</span>';
+        } else {
+            timeMaxElement.innerHTML = 'Строк кредиту, міс.';
+        }
+
+        inputField.value = value;
+
+        // Вызываем вашу функцию для обновления данных
+        getCreditAmount();
+    }
+
+
+function handleSumKredInput() {
+        const maxAmount = 480000;
+        let inputField = document.getElementById("sum_kred");
+        let sumMaxElement = document.getElementById("sum_max");
+        let value = parseInt(inputField.value);
+
+        if (isNaN(value)) {
+            value = 0;
+        }
+
+        if (value > maxAmount) {
+            value = maxAmount;
+            sumMaxElement.innerHTML = 'Сума кредиту, грн <span style="color: red; font-size:16px;">(Максимально: 480 000 грн)</span>';
+        } else {
+            sumMaxElement.innerHTML = 'Сума кредиту, грн';
+        }
+
+        inputField.value = value;
+
+        // Вызываем вашу функцию для обновления данных
+        getCreditAmount();
+    }
+
+
+
+
+      // go to
+      document.querySelectorAll("[data-go-to-form]").forEach((button) => {
+          button.onclick = function () {
+              document.querySelector(".section--form").scrollIntoView({
+                  behavior: "smooth",
+              });
+          };
+      });
+      
+      // info
+      document.querySelectorAll(".info__title").forEach((title) => {
+          title.addEventListener("click", function () {
+              title.classList.toggle("active");
+              title.nextElementSibling.classList.toggle("visible");
+          });
+      });
+      
+      // sending form
+      const nameField = document.getElementById("webform-fio");
+      const phone = document.getElementById("webform-phone");
+      const personalData = document.getElementById("webform-personal-data");
+      
+      const form = document.getElementById("form");
+      const loader = document.querySelector(".loader");
+      const result = document.querySelector(".result");
+      
+      // eventListeners
+      nameField.addEventListener("input", (e) => {
+          const newValue = e.target.value.replace(/[^ а-яА-ЯєЄіІїЇ'’-]/g, "");
+          e.target.value = newValue;
+      });
+      
+      phone.addEventListener("input", (e) => {
+          const newValue = e.target.value
+              .replace(/\D+/g, "")
+              .replace(/^380|38|3/, "");
+          e.target.value = "+380" + newValue;
+      });
+      
+      form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+      
+          const list = document.querySelectorAll(".input-container.error");
+          const nameField = e.target.elements["webform-fio"];
+          const phoneField = e.target.elements["webform-phone"];
+          const personalDataField = e.target.elements["webform-personal-data"];
+      
+          let textStatus = "";
+      
+          for (const node of list) {
+              node.classList.remove("error");
+          }
+      
+          const arrValidation = [
+              validation("name", nameField),
+              validation("phone", phoneField),
+              validation("personalData", personalDataField),
+          ];
+      
+          if (arrValidation.every((isValid) => isValid)) {
+              const queryString = window.location.search;
+              const urlParams = new URLSearchParams(queryString);
+      
+              const utm_content = urlParams.get("utm_content");
+              const utm_medium = urlParams.get("utm_medium");
+              const utm_source = urlParams.get("utm_source");
+              const utm_campaign = urlParams.get("utm_campaign");
+              const form_data = gatherFormData();
+              const formData = {
+                  type: "Cred_Energonezalezhnyi_domgosp",
+                  info: "landing_constructor",
+                  mails: [
+                      "cc_deposits@ukrgasbank.com",
+                      "workmarketing@ukrgasbank.com",
+                  ],
+                  data: {
+                      form: form_data,
+                      ...(utm_content && { utm_content }),
+                      ...(utm_medium && { utm_medium }),
+                      ...(utm_source && { utm_source }),
+                      ...(utm_campaign && { utm_campaign }),
+                  },
+              };
+      
+              form.classList.add("hidden");
+              loader.classList.add("visible");
+      
+              const response = await fetch(
+                  "https://nr-messages.ukrgasaws.com/api/nr/send/email",
+                  {
+                      method: "POST",
+                      body: JSON.stringify(formData),
+                      headers: {
+                          "x-auth-token": "JHJosDiOlHGHGdytEOjkh8hgKf88",
+                          "Content-Type": "application/json",
+                      },
+                  }
+              );
+      
+              if (response.status === 200) {
+                  textStatus = "Дякуємо! Скоро з вами зв’яжеться наш менеджер";
+              } else {
+                  textStatus =
+                      "Щось пішло не так. Перезавантажте сторінку та спробуйте ще раз";
+              }
+      
+              result.innerHTML = textStatus;
+              loader.classList.remove("visible");
+              result.classList.add("visible");
+          }
+      });
+      
+      // validations
+      function validation(key, elements) {
+          let errorMessage = "";
+          const value = elements.value.trim();
+      
+          switch (key) {
+              case "name": {
+                  if (value.length === 0) {
+                      errorMessage = "Обовʼязкове поле";
+                  } else if (value.length < 3) {
+                      errorMessage =
+                          "Будь ласка, введіть ваше імя, прізвище та імʼя по батькові";
+                  }
+      
+                  break;
+              }
+      
+              case "phone": {
+                  if (value.length === 0) {
+                      errorMessage = "Обовʼязкове поле";
+                  } else if (value.length !== 13) {
+                      errorMessage =
+                          "Будь ласка, введіть номер телефону у форматі +380XXXXXXXXX";
+                  }
+      
+                  break;
+              }
+      
+              case "personalData": {
+                  if (!elements.checked) {
+                      errorMessage = "Обовʼязкове поле";
+                  }
+                  break;
+              }
+      
+              default:
+                  break;
+          }
+      
+          if (errorMessage.length) {
+              showErrorMessage(elements, errorMessage);
+          } else {
+              hideErrorMessage(elements);
+          }
+      
+          return errorMessage.length === 0;
+      }
+      
+      function showErrorMessage(element, message) {
+          element.closest(".field").classList.add("error");
+          for (const node of element.closest(".field").children) {
+              if (node.classList.value.includes("field__error")) {
+                  node.innerHTML = message;
+              }
+          }
+      }
+      
+      function hideErrorMessage(element) {
+          element.closest(".field").classList.remove("error");
+      }
+      
+      // get all data from form
+      function gatherFormData() {
+          const form = document.getElementById("form");
+          const formDataArray = [];
+      
+          for (const element of form.elements) {
+              if (element.tagName === "INPUT" && element.type !== "checkbox" && element.type !== "submit") {
+                  const inputValue = element.value;
+                  const inputName = element.getAttribute("label");
+      
+                  formDataArray.push({ value: inputValue, placeholder: inputName });
+              } else if (element.tagName === "TEXTAREA") {
+                  const inputValue = element.value;
+                  const inputName = element.getAttribute("label");
+      
+                  formDataArray.push({ value: inputValue, placeholder: inputName });
+              }
+          }
+      
+          return formDataArray;
+      }
+      
+      async function mySend() {
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+      
+          const utm_content = urlParams.get("utm_content");
+          const utm_medium = urlParams.get("utm_medium");
+          const utm_source = urlParams.get("utm_source");
+          const utm_campaign = urlParams.get("utm_campaign");
+          const formUtm = {
+              type: "Cred_Energonezalezhnyi_domgosp",
+              info: "landing_constructor",
+              data: {
+                  ...(utm_content && { utm_content }),
+                  ...(utm_medium && { utm_medium }),
+                  ...(utm_source && { utm_source }),
+                  ...(utm_campaign && { utm_campaign }),
+              },
+          };
+          const response = await fetch(
+              "https://nr-messages.ukrgasaws.com/api/nr/send/analytics/lending",
+              {
+                  method: "POST",
+                  body: JSON.stringify(formUtm),
+                  headers: {
+                      "x-auth-token": "JHJosDiOlHGHGIllIIIlldyh8hgKf88",
+                      "Content-Type": "application/json",
+                  },
+              }
+          );
+      }
+      window.onload = mySend;
+    </script>
+
+
+
+    <script type="text/javascript">
+      var UIRD3M = 13.42
+      UIRD3M += 7
+
+
+      function getCreditAmount() {
+    var sumKred = document.getElementById("sum_kred").value;
+    var sumKred2 = sumKred
+    var timeKred = document.getElementById("time_kred").value;
+    var month 
+    var all_months = 0 
+    let ArrXirr = []
+
+
+    if(!isNaN(sumKred) && !isNaN(timeKred)){
+      var bodyKred = sumKred / timeKred
+      var insurance = (sumKred * 1.5) / 100
+      for(i = timeKred - 1; i >= 0; i--){
+        month = (((sumKred / 12) * UIRD3M) / 100) + bodyKred
+        month = month.toFixed(2) * 1;
+        ArrXirr.push(month)
+        all_months = all_months + month
+        all_months = all_months.toFixed(2) * 1
+        sumKred = sumKred - bodyKred
+        // console.log(month)
+      }
+        all_months = all_months + insurance
+        all_months = all_months.toFixed(2) * 1
+        //console.log(ArrXirr)
+        //var MonthlyPay = all_months / timeKred
+        var MonthlyPay = ArrXirr[0]
+
+
+        
+        MonthlyPay = MonthlyPay.toFixed(2) * 1 
+        document.getElementById("Compen").value  =  bodyKred.toFixed(2);
+        var minus = all_months - sumKred2;
+        document.getElementById("AllSumMinus").value  =  minus.toFixed(2);
+        document.getElementById("displaySumMonth").value  = MonthlyPay
+        document.getElementById("AllSum").value  = all_months
+        var insuranceParse = document.getElementById("insurance");
+insuranceParse.innerHTML = 'Комісія за надання кредиту 1.5% (' + insurance + ' грн)';
+
+
+
+
+
+
+
+
+
+
+// Ниже функция создания массива для XIRR, с датами, которые потребуются для подсчёта.
+    function getTodayDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = (today.getMonth() + 1).toString().padStart(2, '0');
+            const day = today.getDate().toString().padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+                function addMonthsToDate(date, monthsToAdd) {
+                    const newDate = new Date(date);
+                    newDate.setMonth(newDate.getMonth() + monthsToAdd);
+                    return newDate;
+                }
+                // Создаём массив с данными
+                function generateDateArray(initialDate, numberOfDates) {
+                    const datesArray = [initialDate];
+                    for (let i = 1; i < numberOfDates; i++) {
+                        const newDate = addMonthsToDate(initialDate, i);
+                        datesArray.push(newDate.toISOString().split('T')[0]);
+                    }
+                    return datesArray;
+                }
+                function getNextMonthDate() {
+                    const today = new Date();
+                    today.setMonth(today.getMonth() + 1);
+                    const year = today.getFullYear();
+                    const month = (today.getMonth() + 1).toString().padStart(2, '0');
+                    const day = today.getDate().toString().padStart(2, '0');
+                    return `${year}-${month}-${day}`;
+                }
+                // Example usage
+                const todayDate = getNextMonthDate();
+                const numberOfDates = timeKred; // Тут указывается, сколько нужно создать дат, добавляя один месяц
+                const dateArray = generateDateArray(todayDate, numberOfDates);
+                //console.log('Generated Date Array:', dateArray);
+                //функция подсчёта XIRR
+                let principal = document.getElementById("sum_kred").value;
+                //let payment = 2400;
+                let guess = 0.03;
+                let startDate = getTodayDate();
+                let payments = {};
+                for (let k = 0; k < dateArray.length; k++) {
+                    const date = dateArray[k];
+                    const payment = ArrXirr[k];
+                    payments[date] = payment;
+                }
+                //console.log(payments)
+                let interest = EffectiveInterestCalculator.withSpecifiedPayments(principal, startDate, payments, guess);
+                interest = interest * 100
+                interest = interest.toFixed(2) * 1
+        document.getElementById("XIRR").value  = interest
+
+    }
+
+  }
+    </script>
+  </body>
+</html>
