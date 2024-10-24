@@ -217,42 +217,46 @@
     <script>
 
 function handleTimeKredInput() {
-        const maxTime = 120;
-        let inputField = document.getElementById("time_kred");
-        let timeMaxElement = document.getElementById("time_max");
-        let value = parseInt(inputField.value);
+    const maxTime = 120;
+    const minTime = 1; // Минимальное значение
+    let inputField = document.getElementById("time_kred");
+    let timeMaxElement = document.getElementById("time_max");
+    let value = parseInt(inputField.value);
 
-        if (isNaN(value)) {
-            value = 0;
-        }
-
-        if (value > maxTime) {
-            value = maxTime;
-            timeMaxElement.innerHTML = 'Строк кредиту, міс. <span style="color: red;font-size:16px;">(Максимально: 120 міс.)</span>';
-        } else {
-            timeMaxElement.innerHTML = 'Строк кредиту, міс.';
-        }
-
-        inputField.value = value;
-
-        // Вызываем вашу функцию для обновления данных
-        getCreditAmount();
+    // Если значение не число или меньше минимального, устанавливаем минимальное значение
+    if (isNaN(value) || value < minTime) {
+        value = minTime;
+        timeMaxElement.innerHTML = `Строк кредиту, міс. <span style="color: red;font-size:16px;">(Мінімально: ${minTime} міс.)</span>`;
+    } else if (value > maxTime) {
+        value = maxTime;
+        timeMaxElement.innerHTML = `Строк кредиту, міс. <span style="color: red;font-size:16px;">(Максимально: ${maxTime} міс.)</span>`;
+    } else {
+        timeMaxElement.innerHTML = 'Строк кредиту, міс.';
     }
+
+    inputField.value = value;
+
+    // Вызываем вашу функцию для обновления данных
+    getCreditAmount();
+}
 
 
 function handleSumKredInput() {
-        const maxAmount = 480000;
-        let inputField = document.getElementById("sum_kred");
-        let sumMaxElement = document.getElementById("sum_max");
+    const maxAmount = 480000;
+    const minAmount = 20000; // Минимальная сумма кредита
+    let inputField = document.getElementById("sum_kred");
+    let sumMaxElement = document.getElementById("sum_max");
+    
+    // Привязываем проверку к событию onblur, когда поле теряет фокус
+    inputField.onblur = function () {
         let value = parseInt(inputField.value);
 
-        if (isNaN(value)) {
-            value = 0;
-        }
-
-        if (value > maxAmount) {
+        if (isNaN(value) || value < minAmount) {
+            value = minAmount;
+            sumMaxElement.innerHTML = `Сума кредиту, грн <span style="color: red; font-size:16px;">(Мінімально: ${minAmount} грн)</span>`;
+        } else if (value > maxAmount) {
             value = maxAmount;
-            sumMaxElement.innerHTML = 'Сума кредиту, грн <span style="color: red; font-size:16px;">(Максимально: 480 000 грн)</span>';
+            sumMaxElement.innerHTML = `Сума кредиту, грн <span style="color: red; font-size:16px;">(Максимально: ${maxAmount} грн)</span>`;
         } else {
             sumMaxElement.innerHTML = 'Сума кредиту, грн';
         }
@@ -261,7 +265,8 @@ function handleSumKredInput() {
 
         // Вызываем вашу функцию для обновления данных
         getCreditAmount();
-    }
+    };
+}
 
 
 
