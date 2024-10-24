@@ -102,22 +102,22 @@
             </label>
             <label><span>Щомісячний платіж, грн</span>
               <br>
-              <input type="number" id="displaySumMonth" readonly>
+              <input type="text" id="displaySumMonth" readonly>
             </label>
 
 
 
             <label><span>Орієнтовна загальна вартість кредиту, грн</span>
-              <input type="number" id="AllSum" readonly>
+              <input type="text" id="AllSum" readonly>
             </label>
 
 
             <label><span>Щомісячний платіж, з компенсацією, грн</span>
               <br>
-              <input type="number" id="Compen" readonly>
+              <input type="text" id="Compen" readonly>
             </label>
             <label><span>Орієнтовні загальні витрати за кредитом, грн</span>
-              <input type="number" id="AllSumMinus" readonly>
+              <input type="text" id="AllSumMinus" readonly>
             </label>
 
 
@@ -531,18 +531,22 @@ function handleSumKredInput() {
 
         
         MonthlyPay = MonthlyPay.toFixed(2) * 1 
-        document.getElementById("Compen").value  =  bodyKred.toFixed(2);
+        document.getElementById("Compen").value  =  formatNumber(bodyKred)
         var minus = all_months - sumKred2;
-        document.getElementById("AllSumMinus").value  =  minus.toFixed(2);
-        document.getElementById("displaySumMonth").value  = MonthlyPay
-        document.getElementById("AllSum").value  = all_months
+        document.getElementById("AllSumMinus").value  =  formatNumber(minus);
+        document.getElementById("displaySumMonth").value  = formatNumber(MonthlyPay)
+        document.getElementById("AllSum").value  = formatNumber(all_months)
         var insuranceParse = document.getElementById("insurance");
 insuranceParse.innerHTML = 'Комісія за надання кредиту 1.5% (' + insurance + ' грн)';
 
+//Compen
 
 
-
-
+    function formatNumber(value) {
+    let formattedValue = value.toFixed(2);
+    formattedValue = formattedValue.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return formattedValue;
+}
 
 
 
